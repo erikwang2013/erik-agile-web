@@ -1,0 +1,84 @@
+body {
+    background: url("../images/bg.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.login-box {
+    /*width: 300px;
+    height: 300px;
+    border: 1px solid #1a312c;
+    position: absolute; 
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    border-radius: 5px; */
+    /* width: 60em; */
+    margin: 10em auto auto auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.head {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -96px;
+    left: 50%;
+    margin-left: -50px;
+    background: url("../images/ok.png");
+    background-size: cover;
+}
+
+.login-box .input-box {
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box .input-box .layui-form {
+    width: 40em;
+}
+
+.input-box input {
+    margin-top: 2em;
+    border-radius: 5px;
+    height: 3.5em;
+}
+
+.input-box input[type="submit"] {
+    background-color: #189F92;
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 18px;
+}
+
+.input-box .remember-me {
+    margin-top: 20px;
+}
+
+.input-box .remember-me .layui-form-switch {
+    margin-top: 0;
+}
+
+.input-box .oauth {
+    margin-top: 20px;
+}
+
+.input-box .oauth i {
+    cursor: pointer;
+    font-size: 28px;
+}
+
+.copyright {
+    margin-top: 15em;
+    font-size: 12px;
+    text-align: center;
+}
