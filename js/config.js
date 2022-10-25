@@ -1,0 +1,5 @@
+var hostaddress = "/api"
+
+// $(function () {
+
+// })

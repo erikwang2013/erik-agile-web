@@ -9,17 +9,16 @@
     <meta name="description" content="erik-agile是一个支持rpc而又极其简略的后台管理系统">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="lib/layui/css/layui.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_ask70l8wanw.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" />
+    <!-- <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_ask70l8wanw.css"> -->
     <link rel="stylesheet" href="css/login.css" />
-    <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+    <!-- <link rel="stylesheet" href="lib/nprogress/nprogress.css"> -->
 </head>
 
 <body>
     <div class="login-box animated rotateIn">
         <!-- <div class="head"></div> -->
         <div class="input-box">
-            <form class="layui-form" action="">
+            <form class="layui-form" lay-filter="login-admin-data" action="">
                 <input type="text" name="username" required lay-verify="required" placeholder="邮箱/手机号/平台账号"
                     autocomplete="off" class="layui-input">
                 <input type="password" name="password" required lay-verify="required" placeholder="密码"
@@ -28,7 +27,7 @@
                     <span>记住我：</span>
                     <input type="checkbox" name="zzz" lay-skin="switch" lay-text="是|否">
                 </div> -->
-                <input type="submit" value="登 录" lay-submit lay-filter="login">
+                <input type="submit" value="登 录" lay-submit lay-filter="login-submit">
             </form>
             <!-- <div class="oauth">
                 <i class="iconfont icon-WechatIMG" style="font-size: 25px;"></i>
@@ -45,46 +44,23 @@
     </div>
     <!--js逻辑-->
     <script src="lib/layui/layui.js"></script>
+    <script src="js/config.js"></script>
     <script src="lib/nprogress/nprogress.js"></script>
     <script>
         NProgress.start();
         window.onload = function () {
             NProgress.done();
         }
-        layui.use(['form', 'jquery'], function () {
-            var form = layui.form;
-            var $ = layui.jquery;
-
-            form.on('submit(login)', function (data) {
-                layer.msg("登陆中...", { icon: 6, time: 1000, anim: 4 }, function () {
-                    window.location = "index.html";
-                });
+        layui.use(['form'], function () {
+            var form = layui.form
+            form.on('submit(login-submit)', function (val) {
+                var data = val.field
+                console.log(data)
+                console.log(hostaddress + "/system/admin/login")
+                //window.location = "index.html";
                 return false;
             });
 
-            $(".oauth .icon-WechatIMG").click(function () {
-                layer.msg('正在打开Gitee登陆页面，请稍后...');
-            });
-
-            $(".oauth .icon-github").click(function () {
-                layer.msg('正在打开Github登陆页面，请稍后...');
-            });
-
-            $(".oauth .icon-logo-weibo").click(function () {
-                layer.msg('正在打开微博登陆页面，请稍后...');
-            });
-
-            $(".oauth .icon-qq").click(function () {
-                layer.msg('正在打开QQ登陆页面，请稍后...');
-            });
-
-            $(".oauth .icon-weixin").click(function () {
-                layer.msg('正在打开微信登陆页面，请稍后...');
-            });
-
-            $(".oauth .icon-zhifubao").click(function () {
-                layer.msg('正在打开支付宝登陆页面，请稍后...');
-            });
         });
     </script>
 </body>
